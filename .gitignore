@@ -4,3 +4,8 @@
 */cache/*
 */cache/!index.html
 */cache/!.htaccess
+.idea
+*.*~
+*.lock
+vendor/
+*.zip
