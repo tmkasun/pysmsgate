@@ -20,6 +20,8 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/jquery-ui.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/jquery-ui.theme.css">
+    <!--Documentation @ http://daneden.github.io/animate.css/ -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/animate.css">
 
     <!--Custom CSS styles -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/breadcrumb-custom.css">
@@ -29,6 +31,10 @@
     <script src="<?= base_url() ?>assets/js/jquery-ui.js"></script>
 
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>assets/js/bootstrap-growl.js"></script>
+
+    <!--Custom JavaScript files -->
+    <script src="<?= base_url() ?>assets/js/application.js"></script>
 
 </head>
 <body>
@@ -41,6 +47,7 @@
         </div>
     </div>
 </nav>
+
 <div class="container-fluid" style="width: 75%;margin-left: auto;margin-right: auto;">
 <div class="container">
     <div class="row">

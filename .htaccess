@@ -1,0 +1,5 @@
+RewriteEngine On
+#Pipeline any wdirectory which you need to excluede from matching regex
+#run this on Ubuntu server sudo a2enmod rewrite && sudo service apache2 restart and set blank to 'index_page' in codeignitor config
+RewriteCond $1 !^(index\.php|assets|robots.txt)
+RewriteRule ^(.*)$ /index.php/$1 [L]

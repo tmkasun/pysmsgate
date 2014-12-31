@@ -21,6 +21,10 @@ class Landing extends CI_Controller {
 	{
 		$this->load->view("landing/index");
 	}
+
+	public function feedback_form(){
+		$this->load->view("modals/feedback");
+	}
 }
 
 /* End of file landing.php */

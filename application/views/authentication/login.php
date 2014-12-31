@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/jquery-ui.theme.css">
 
     <!--Custom CSS styles -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/breadcrumb-custom.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/footer-bottom.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/login.css">
 
     <script src="<?= base_url() ?>assets/js/jquery-2.1.3.js"></script>
     <script src="<?= base_url() ?>assets/js/jquery-ui.js"></script>
@@ -56,12 +55,12 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-wrap">
-                    <h1>Log in with your email account</h1>
+                    <h1>Log in with your user account</h1>
 
-                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                    <form role="form" action="<?= base_url() ?>authenticate/login" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="email" name="email" id="email" class="form-control"
+                            <label for="user" class="sr-only">User</label>
+                            <input type="text" name="user" id="user" class="form-control"
                                    placeholder="somebody@example.com">
                         </div>
                         <div class="form-group">
@@ -116,10 +115,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <p>Page © - 2014</p>
-
-                <p>Powered by <strong><a href="http://www.facebook.com/tavo.qiqe.lucero"
-                                         target="_blank">TavoQiqe</a></strong></p>
+                <p>Powered by <strong><a href="http://www.knnect.com"
+                                         target="_blank">Knnect</a></strong></p>
             </div>
         </div>
     </div>
