@@ -48,8 +48,8 @@
     </div>
 </nav>
 
-<div class="container-fluid" style="width: 75%;margin-left: auto;margin-right: auto;">
-<div class="container">
+<div class="container-fluid">
+<div class="container" style="width: 75%;margin-left: auto;margin-right: auto;">
     <div class="row">
         <div class="btn-group btn-breadcrumb">
             <a href="#" class="btn btn-default">Home</a>

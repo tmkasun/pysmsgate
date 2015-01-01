@@ -29,25 +29,16 @@
 
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
 
-    <script>
-        function showPassword() {
+    <!--Custom Javascript file -->
+    <script src="<?= base_url() ?>assets/js/login/login.js"></script>
 
-            var key_attr = $('#key').attr('type');
+    <!--bootstrap-application-wizard-->
+    <!-- Source: http://www.panopta.com/2013/02/06/bootstrap-application-wizard-2/ -->
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-wizard-lib/bootstrap-wizard.css">
+    <!--bootstrap-application-wizard-->
+    <script src="<?= base_url() ?>assets/js/bootstrap-wizard-lib/bootstrap-wizard.js"></script>
 
-            if(key_attr != 'text') {
 
-                $('.checkbox').addClass('show');
-                $('#key').attr('type', 'text');
-
-            } else {
-
-                $('.checkbox').removeClass('show');
-                $('#key').attr('type', 'password');
-
-            }
-
-        }
-    </script>
 </head>
 <body>
 <section id="login">
@@ -57,7 +48,8 @@
                 <div class="form-wrap">
                     <h1>Log in with your user account</h1>
 
-                    <form role="form" action="<?= base_url() ?>authenticate/login" method="post" id="login-form" autocomplete="off">
+                    <form role="form" action="<?= base_url() ?>authenticate/login" method="post" id="login-form"
+                          autocomplete="off">
                         <div class="form-group">
                             <label for="user" class="sr-only">User</label>
                             <input type="text" name="user" id="user" class="form-control"
@@ -111,9 +103,17 @@
 </div>
 <!-- /.modal -->
 
+<div id="setup_wizard" style="display: none;">
+
+</div>
 <footer id="footer">
     <div class="container">
         <div class="row">
+            <span><a
+                    onclick="$('#setup_wizard').load('system_tools/setup_wizard',function(data){initWizard()});return false">Need
+                    a help <i class="fa fa-question-circle"></i>, Try
+                    <span style="color: rgba(168, 0, 148, 1);cursor: pointer;">Setup-Wizard</span></a></span>
+
             <div class="col-xs-12">
                 <p>Powered by <strong><a href="http://www.knnect.com"
                                          target="_blank">Knnect</a></strong></p>

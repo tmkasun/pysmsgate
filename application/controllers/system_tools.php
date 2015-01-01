@@ -88,4 +88,8 @@ class System_Tools extends CI_Controller {
 			throw $e;
 		}
 	}
+
+	public function setup_wizard(){
+		$this->load->view('modals/setup_wizard');
+	}
 }
