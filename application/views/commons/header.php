@@ -37,7 +37,8 @@
     <script src="<?= base_url() ?>assets/js/application.js"></script>
 
 </head>
-<body>
+<!-- TODO: Make sticky footer http://stackoverflow.com/questions/17966140/twitter-bootstrap-3-sticky-footer -->
+<body data-spy="scroll" data-target="#affix-nav">
 <nav class="navbar navbar-default" style="margin-bottom: 0px">
     <div class="container-fluid" style="width: 75%;">
         <div class="navbar-header">
@@ -45,6 +46,7 @@
                 <i class="fa fa-envelope-o"><span style="font-size: x-small;display: block">SMS</span></i>
             </a>
         </div>
+        <h3 class="text-muted"><span class="text-info">Knnect</span> SMS Service</h3>
     </div>
 </nav>
 

@@ -109,6 +109,17 @@ class Testing extends CI_Controller {
 			// A mandrill error occurred: Mandrill_Unknown_Subaccount - No subaccount exists with the id 'customer-123'
 			throw $e;
 		}
+	}
+
+	function show_config(){
+		$system_instance = new System_Configuration();
+		$this->output->set_content_type('application/json')->set_output(json_encode($system_instance->get_config()));
 
 	}
+
+	function sms(){
+		$sms = new Sms("0711661919","Testing");
+		$status = $sms->send();
+	}
+
 }

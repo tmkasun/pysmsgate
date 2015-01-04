@@ -6,6 +6,10 @@ class System_Tools extends CI_Controller {
 		$this->load->view("modals/feedback");
 	}
 
+	public function terms(){
+		$this->load->view("modals/terms");
+	}
+
 	public function submit_feedback(){
 		$post_data = $this->input->post();
 		$first_name = $post_data['firstname'];
