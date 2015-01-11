@@ -54,8 +54,8 @@
 <div class="container" style="width: 75%;margin-left: auto;margin-right: auto;">
     <div class="row">
         <div class="btn-group btn-breadcrumb">
-            <a href="#" class="btn btn-default">Home</a>
-            <a href="#" class="btn btn-default"><?= ucfirst($this->router->fetch_class()); ?></a>
+            <a href="/landing" class="btn btn-default">Home</a>
+            <a href="<?= '/'.$this->router->fetch_class().'/index'?>" class="btn btn-default"><?= ucfirst($this->router->fetch_class()); ?></a>
             <a href="#" class="btn btn-default"><?= ucfirst($this->router->fetch_method()); ?></a>
         </div>
     </div>

@@ -39,14 +39,17 @@ padding-top: 10px;">
         </div>
         <div class="col-sm-3 col-xs-offset-1">
             <div class="thumbnail">
+<!-- TODO: Put <a> to whole thumbnail section not only to image it breaks the expectation of background hover highlight -->
+                <a href="<?= site_url("/diagnose")?>">
                 <img alt="100%x200" src="<?= base_url() ?>assets/images/landing/diagnosis.svg"
                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-
+                </a>
                 <div class="caption">
                     <h3>Diagnose Service</h3>
 
                     <p>Show the health of the SMS service</p>
                 </div>
+
             </div>
         </div>
     </div>
