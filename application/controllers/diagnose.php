@@ -5,7 +5,9 @@ class Diagnose extends CI_Controller
 
     public function index()
     {
-        $this->load->view("diagnose/status");
+        $modem = new Modem();
+        $response = $modem->all();
+        $this->load->view("diagnose/status" , array('response' => $response));
     }
 
 }

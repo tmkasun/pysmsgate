@@ -1,15 +1,44 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: kbsoft
  * Date: 12/29/14
  * Time: 10:05 PM
  */
+class Modem
+{
 
-class Codei_Composer {
-
-    function __construct(){
-        include("vendor/autoload.php");
+    function __construct()
+    {
+        $this->system_config = new System_Configuration();
+        Requests::register_autoloader();
     }
 
+
+    function ping($fd = null)
+    {
+        $headers = array('Accept' => 'application/json');
+        $data = array('fd' => $fd);
+        try{
+            $response = Requests::get($this->system_config->service_url('modem/ping'), $headers, $data);
+            $return_value = $response->body;
+        }catch (Requests_Exception $e){
+            $return_value = json_encode(array('result'=> false, 'status' => 'fail'));
+        }
+        return json_decode($return_value);
+    }
+
+
+    function all()
+    {
+        $headers = array('Accept' => 'application/json');
+        try{
+            $response = Requests::get($this->system_config->service_url('modem/all'), $headers);
+            $return_value = $response->body;
+        }catch (Requests_Exception $e){
+            $return_value = json_encode(array('result'=> false, 'status' => 'fail'));
+        }
+        return json_decode($return_value);
+    }
 }

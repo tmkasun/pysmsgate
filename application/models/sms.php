@@ -28,7 +28,7 @@ class Sms extends CI_Model
         }
         $headers = array('Accept' => 'application/json');
         $data = array('mobile_number' => $this->number, 'message' => $this->message);
-        $response = Requests::post($this->system_config->sms_service_url(), $headers,$data);
+        $response = Requests::post($this->system_config->service_url('sms/send'), $headers,$data);
         return $response;
     }
 

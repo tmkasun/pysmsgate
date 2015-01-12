@@ -1,4 +1,11 @@
-<?php $this->load->view('commons/header', array('class' => $class)); ?>
+<?php
+
+$class = "alert-danger";
+if ($response->result == true and $response->failures != 0) {
+    $class = "alert-success";
+}
+
+$this->load->view('commons/header', array('class' => $class)); ?>
 
     <style>
         /*

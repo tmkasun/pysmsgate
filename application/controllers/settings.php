@@ -8,11 +8,7 @@ class Diagnose extends CI_Controller
         $modem = new Modem();
         $response = $modem->ping();
 
-        $class = "alert-danger";
-        if($response->result){
-            $class = "alert-success";
-        }
-        $this->load->view("diagnose/status" , array('class' => $class));
+        $this->load->view("settings/index" , array('response' => $response));
     }
 
 }

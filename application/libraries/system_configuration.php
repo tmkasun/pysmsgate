@@ -24,15 +24,15 @@ class System_Configuration
         return $this->configuration_array;
     }
 
+    public function service_url($path = '')
+    {
+        $this->service_url = "http://" . $this->configuration_array['hostname'] . ":" . $this->configuration_array['port'] . "/service/".$path;
+        return $this->service_url;
+    }
+
+    /* Private methods */
     private function fetch_configuration()
     {
         $this->configuration_array = parse_ini_file(self::CONIG_PATH);
-    }
-
-
-    public function sms_service_url()
-    {
-        $this->service_url = "http://" . $this->configuration_array['hostname'] . ":" . $this->configuration_array['port'] . "/sms_service";
-        return $this->service_url;
     }
 }

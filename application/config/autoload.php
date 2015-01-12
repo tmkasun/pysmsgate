@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('Codei_Composer','session','System_Configuration');
+$autoload['libraries'] = array('Codei_Composer','session','System_Configuration','Modem');
 
 
 /*

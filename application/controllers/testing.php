@@ -122,4 +122,11 @@ class Testing extends CI_Controller {
 		$status = $sms->send();
 	}
 
+	function modem_ping(){
+		$modem = new Modem();
+		$status = $modem->ping();
+		$this->output->set_content_type('application/json')->set_output(json_encode($status));
+
+	}
+
 }

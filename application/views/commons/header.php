@@ -50,7 +50,7 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid <?= isset($class) ? $class:'' ?>">
 <div class="container" style="width: 75%;margin-left: auto;margin-right: auto;">
     <div class="row">
         <div class="btn-group btn-breadcrumb">
