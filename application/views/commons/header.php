@@ -14,7 +14,7 @@
     <title>SMS Gateway Service</title>
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap-theme.css">
+<!--    <link rel="stylesheet" href="--><?//= base_url() ?><!--assets/css/bootstrap-theme.css">-->
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/font-awesome.css">
 
@@ -26,6 +26,7 @@
     <!--Custom CSS styles -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/breadcrumb-custom.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/footer-bottom.css">
+
 
     <script src="<?= base_url() ?>assets/js/jquery-2.1.3.js"></script>
     <script src="<?= base_url() ?>assets/js/jquery-ui.js"></script>

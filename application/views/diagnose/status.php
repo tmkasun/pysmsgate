@@ -81,7 +81,8 @@ $this->load->view('commons/header', array('class' => $class)); ?>
     </style>
     <div class="container-fluid">
         <div class="row" style="width: 75%;margin-left: auto;margin-right: auto">
-            <h2 class="header">Available Modems <i class="fa fa-refresh text-info" style="font-size: medium;cursor: pointer;"></i> </h2>
+            <h2 class="header">Available Modems <i class="fa fa-refresh text-info" style="font-size: medium;cursor: pointer;"></i>
+            </h2>
             <hr class="shadow-line">
             <?php
             if($response->result) {
@@ -92,9 +93,6 @@ $this->load->view('commons/header', array('class' => $class)); ?>
                 $this->load->view('/commons/service_error');
             }
                 ?>
-
-
-
             <h2 class="sub-header">Section title</h2>
             <hr class="shadow-line">
         </div>

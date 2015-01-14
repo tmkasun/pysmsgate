@@ -1,7 +1,8 @@
 {
     "require": {
         "rmccue/requests": ">=1.0",
-        "mandrill/mandrill": "1.0.*"
+        "mandrill/mandrill": "1.0.*",
+        "doctrine/orm": "*"
     },
     "autoload": {
         "psr-0": {"Requests": "library/"}
