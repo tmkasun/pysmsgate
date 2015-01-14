@@ -41,4 +41,34 @@ class Modem
         }
         return json_decode($return_value);
     }
+
+    function find($fd)
+    {
+        $headers = array('Accept' => 'application/json');
+        $data = array('fd'=>$fd);
+        try{
+            $response = Requests::get($this->system_config->service_url('modem/all?'.http_build_query($data)), $headers);
+            $return_value = $response->body;
+        }catch (Requests_Exception $e){
+            $return_value = json_encode(array('result'=> false, 'status' => 'fail'));
+        }
+        return json_decode($return_value);
+    }
+
+
+    function dial($number,$fd = null)
+    {
+        $headers = array('Accept' => 'application/json');
+        $data = array(
+            'fd'=>$fd,
+            'number' => $number
+        );
+        try{
+            $response = Requests::post($this->system_config->service_url('modem/dial'), $headers, $data);
+            $return_value = $response->body;
+        }catch (Requests_Exception $e){
+            $return_value = json_encode(array('result'=> false, 'status' => 'fail'));
+        }
+        return json_decode($return_value);
+    }
 }

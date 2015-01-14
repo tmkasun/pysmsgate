@@ -66,7 +66,12 @@ class Modems(object):
         modems_dic = dict()
         for modem_config in configuration.modems:
             print('Connecting to GSM modem on {0}...'.format(modem_config['fd']))
-            gsm_modem_object = GsmModem(modem_config['fd'], modem_config['baud'])
+            baud = modem_config.get('baud')
+            if not baud:
+                gsm_modem_object = GsmModem(modem_config.get('fd'))
+            else:
+                gsm_modem_object = GsmModem(modem_config.get('fd'), modem_config.get('baud'))
+
             connection_status = False
             try:
                 gsm_modem_object.connect()
@@ -74,7 +79,7 @@ class Modems(object):
             except PinRequiredError:
                 sys.stderr.write('Error: SIM card PIN required. Please specify a PIN. \n')
 
-            except (SerialException, IncorrectPinError) as error:
+            except (SerialException, IncorrectPinError, TimeoutException) as error:
                 # TODO: Bad practice to catch 2 exceptions in 1 clause and give 1 error message divide using or
                 sys.stderr.write('Error: Incorrect SIM card PIN entered.\nOr can\'t connect to modem in {}\n'.format(
                     modem_config['fd']))

@@ -2,11 +2,10 @@ __author__ = 'kbsoft'
 
 modems = [
     {
+        'fd': '/dev/ttyUSB6',
+
+    }, {
         'fd': '/dev/ttyUSB0',
-        'baud': 460800
-    },
-    {
-        'fd': '/dev/ttyUSB3',
         'baud': 460800
     }
 ]

@@ -43,74 +43,60 @@ $this->load->view('commons/header', array('class' => $class)); ?>
             background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 75%);
         }
 
+        .blink_me {
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+
+            -moz-animation-name: blinker;
+            -moz-animation-duration: 1s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+
+            animation-name: blinker;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @-moz-keyframes blinker {
+            0% { opacity: 1.0; }
+            50% { opacity: 0.0; }
+            100% { opacity: 1.0; }
+        }
+
+        @-webkit-keyframes blinker {
+            0% { opacity: 1.0; }
+            50% { opacity: 0.0; }
+            100% { opacity: 1.0; }
+        }
+
+        @keyframes blinker {
+            0% { opacity: 1.0; }
+            50% { opacity: 0.0; }
+            100% { opacity: 1.0; }
+        }
 
     </style>
     <div class="container-fluid">
         <div class="row" style="width: 75%;margin-left: auto;margin-right: auto">
-            <h1 class="header">Available Modems</h1>
+            <h2 class="header">Available Modems <i class="fa fa-refresh text-info" style="font-size: medium;cursor: pointer;"></i> </h2>
             <hr class="shadow-line">
-            <div class="row placeholders">
+            <?php
+            if($response->result) {
+                $this->load->view('/diagnose/partials/modems', array('modems' => $response->modems));
 
-                <?php foreach ($response->modems as $modem): ?>
-                    <div class="col-md-6">
-                        <div style="width: 50%;margin-left: auto;margin-right: auto;">
+            }
+            else{
+                $this->load->view('/commons/service_error');
+            }
+                ?>
 
-                            <?php if (!$modem->alive): ?>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading"><i class="fa fa-question-circle"> Unknown Device</i>
-                                    </div>
-                                    <div class="panel-body">
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                Modem path <span style="float: right;"> <?= $modem->port ?> </span>
-                                            </li>
-                                            <li class="list-group-item">
-                                                Baudrate <span style="float: right;"> <?= $modem->baudrate ?> </span>
-                                            </li>
-                                            <li class="list-group-item">Alive
-                                                    <span
-                                                        style="float: right;color: <?= $modem->alive ? '#008000' : 'darkorange' ?> "><i
-                                                            class="fa fa-circle"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                            <?php else : ?>
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading"><?= ucfirst($modem->manufacturer) ?>
-                                        <span style="font-size: 11pt;"><?= $modem->model ?></span>
-                                        <span class="text-mute" style="font-size: 8pt;"><?= $modem->revision ?></span></div>
-                                    <div class="panel-body">
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                Modem path <span style="float: right;"> <?= $modem->port ?> </span>
-                                            </li>
-                                            <li class="list-group-item">
-                                                Baudrate <span style="float: right;"> <?= $modem->baudrate ?> </span>
-                                            </li>
-                                            <li class="list-group-item">Alive
-                                                    <span
-                                                        style="float: right;color: <?= $modem->alive ? '#008000' : 'darkorange' ?> "><i
-                                                            class="fa fa-circle"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <img src="assets/images/logos/<?= $modem->manufacturer ?>.png">
-                            <?php endif ?>
-                            <?= var_dump($modem) ?>
-                            <span class="text-muted">Something else</span>
-                        </div>
-                    </div>
-
-                <?php endforeach ?>
-            </div>
 
             <h2 class="sub-header">Section title</h2>
-
-
+            <hr class="shadow-line">
         </div>
     </div>
 <?php $this->load->view('commons/footer'); ?>

@@ -31,7 +31,7 @@ padding-top: 10px;">
                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
 
                 <div class="caption">
-                    <h3>Bulk Messages</h3>
+                    <h3>SMS Campaigns</h3>
 
                     <p>Bulk messages to group of people,can send custom messages per user</p>
                 </div>

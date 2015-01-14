@@ -109,10 +109,10 @@ class Dial(Resource):
     def render_POST(self, request):
         request.responseHeaders.addRawHeader(b"content-type", b"application/json")
         timestamp = int(time.time())
-        number = request.args['number']
+        number = request.args['number'].pop()
         modem = modem_manager.modems.get_random_modem()
         if 'fd' in request.args:
-            fd = request.args['fd']
+            fd = request.args['fd'].pop()
             modem = modem_manager.modems.get(fd)
         try:
             modem.dial(number)
