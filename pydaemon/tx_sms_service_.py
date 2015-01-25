@@ -11,7 +11,6 @@ from twisted.internet import reactor
 from gsmmodem.modem import GsmModem, SentSms
 from gsmmodem.exceptions import TimeoutException, PinRequiredError, IncorrectPinError
 
-
 from config import config
 
 from libs.services import modem_service
@@ -54,7 +53,7 @@ class Sms(Resource):
         if not (self.isMobile(mobile_number)):
             return "Invalid mobile number: {}\nerror code:-1".format(mobile_number)
         message = request.args['message'][0]
-        if not debug_mode:
+        if not Service.debug_mode:
             print("DEBUG: Running delayed job")
             sendSms(mobile_number, message)
 
@@ -118,6 +117,11 @@ class UnknownService(Resource):
 
 class Service(Resource):
     # isLeaf = True
+    debugMode = False
+
+    def __init__(self, debugMode):
+        Resource.__init__(self)
+        Service.debugMode = debugMode
 
     def getChild(self, path, request):
         if path == "sms":
@@ -133,6 +137,9 @@ class Service(Resource):
         request.responseHeaders.addRawHeader(b"content-type", b"application/json")
         return_value = {u'result': u'ok'}
         return json.dumps(return_value)
+
+    def restart(self):
+        pass
 
 
 class Ping(Resource):
@@ -150,20 +157,25 @@ class Ping(Resource):
         return json.dumps(return_value)
 
 
-port = config.api['port']
-service_name = config.api['service_name']
-debug_mode = config.api['debug']
+def main():
+    port = config.api['port']
+    service_name = config.api['service_name']
+    debug_mode = config.api['debug']
 
-resource = Service()
-root_web = Site(resource)
-resource.putChild(service_name, Service())
+    resource = Service(debug_mode)
+    root_web = Site(resource)
+    resource.putChild(service_name, Service(debug_mode))
 
-if not debug_mode:
-    modem_manager.init()
-    print("Connected to modem")
-else:
-    print("DEBUG_MODE enabled no message will be sent out from the dongle")
+    if not debug_mode:
+        modem_manager.init()
+        print("Connected to modem")
+    else:
+        print("DEBUG_MODE enabled no message will be sent out from the dongle")
 
-reactor.listenTCP(port, root_web)
-print "Server running on {} url: localhost:{}/{}".format(port, port,service_name)
-reactor.run()
+    reactor.listenTCP(port, root_web)
+    print "Server running on {} url: localhost:{}/{}".format(port, port, service_name)
+    reactor.run()
+
+
+if __name__ == '__main__':
+    main()

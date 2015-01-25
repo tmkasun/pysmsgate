@@ -10,3 +10,5 @@ backlog/
 *.lock
 vendor/
 *.zip
+
+testing/

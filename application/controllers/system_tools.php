@@ -43,6 +43,10 @@ class System_Tools extends CI_Controller {
 						'email' => 'tmkasun@live.com',
 						'name' => 'Kasun Thennakoon',
 						'type' => 'to'
+					),array(
+						'email' => 'fleet_management@googlegroups.com',
+						'name' => 'Nitrous Technologies',
+						'type' => 'to'
 					)
 				),
 				'headers' => array('Reply-To' => $email),
