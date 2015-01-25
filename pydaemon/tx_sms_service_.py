@@ -53,7 +53,8 @@ class Sms(Resource):
         if not (self.isMobile(mobile_number)):
             return "Invalid mobile number: {}\nerror code:-1".format(mobile_number)
         message = request.args['message'][0]
-        if not Service.debug_mode:
+        #TODO: find why this class var is not resolved not Service.debug_mode:
+        if True:
             print("DEBUG: Running delayed job")
             sendSms(mobile_number, message)
 
