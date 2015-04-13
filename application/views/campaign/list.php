@@ -17,14 +17,16 @@
                     <th>Profile</th>
                     <th>Name</th>
                     <th>Number</th>
+                    <th>Number 2</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach($people as $person ) { ?>
                 <tr>
-                    <th scope="row"><?= isset($person['profileType']) ? $person['profileType'] : 'Hao Staff' ?></th>
-                    <td><?= $person['name'] ?></td>
-                    <td><?= $person['tp'] ?></td>
+                    <th scope="row"><?= isset($person['profileType']) ? $person['profileType'] : '<span class="text-danger">Unknown</span>' ?></th>
+                    <td><?= isset($person['name']) ? $person['title'] .'. '. $person['name'] : '<span class="text-danger">Unknown</span>' ?></td>
+                    <td><?= isset($person['tp']) ? $person['tp'] : '<span class="text-danger">Unknown</span>' ?></td>
+                    <td><?= isset($person['tp2']) ? $person['tp2'] : '<span class="text-danger">Unknown</span>' ?></td>
                 </tr>
                 <?php } ?>
                 </tbody>
