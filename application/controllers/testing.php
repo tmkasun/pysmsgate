@@ -129,4 +129,8 @@ class Testing extends CI_Controller {
 
 	}
 
+	function db_connection(){
+		$this->load->model('lists');
+		print $this->lists->customers_count();
+	}
 }

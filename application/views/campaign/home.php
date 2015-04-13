@@ -11,7 +11,7 @@
     <div class="row" style="width: 75%;margin-left: auto;margin-right: auto">
         <div class="row row-centered" style="padding-top: 20px">
             <div class="col-md-3 col-centered" style="text-align: center">
-                <a type="button" class="btn btn-default btn-lg">
+                <a href="/campaigns/lists" type="button" class="btn btn-default btn-lg">
                     <i class="fa fa-list-ul fa-3x" style="color: mediumvioletred;"></i>
                    <span style="vertical-align: middle;display: block;" class="text-center text-muted">Lists</span>
                 </a>
