@@ -24,7 +24,7 @@
                 <?php foreach($people as $person ) { ?>
                 <tr>
                     <th scope="row"><?= isset($person['profileType']) ? $person['profileType'] : '<span class="text-danger">Unknown</span>' ?></th>
-                    <td><?= isset($person['name']) ? $person['title'] .'. '. $person['name'] : '<span class="text-danger">Unknown</span>' ?></td>
+                    <td><?= isset($person['name']) ? isset($person['title']) ? $person['title'] : 'Mr' .'. '. $person['name'] : '<span class="text-danger">Unknown</span>' ?></td>
                     <td><?= isset($person['tp']) ? $person['tp'] : '<span class="text-danger">Unknown</span>' ?></td>
                     <td><?= isset($person['tp2']) ? $person['tp2'] : '<span class="text-danger">Unknown</span>' ?></td>
                 </tr>

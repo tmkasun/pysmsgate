@@ -38,6 +38,8 @@ class Campaigns extends CI_Controller
 
     public function wizard()
     {
-        $this->load->view("campaign/wizard");
+        $data = array('customers_count' => $this->lists->customers_count(),
+            'users_count' => $this->lists->users_count());
+        $this->load->view("campaign/wizard", $data);
     }
 }
